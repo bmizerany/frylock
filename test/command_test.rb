@@ -22,7 +22,7 @@ context "command" do
   
   specify "should know only send params needed by block" do
     @mock.expects(:called).with('bar')
-    test_command(:foo, ['foo', 'bar', 'baz']) { |a| @mock.called(a) }
+    test_command(:foo, ['foo', 'bar']) { |a| @mock.called(a) }
   end
 
   specify "should know only send params needed by block 2" do

@@ -21,25 +21,14 @@ module Frylock
   
   class Command
     def initialize(cmd, &b)
-      @cmd = case cmd
-      when Symbol
-        cmd = cmd.to_s
-      else
-        cmd
-      end
+      @cmd = cmd
+      @cmd = cmd.to_s if cmd.kind_of?(Symbol)
       @b = b
     end
     
     def call(argv)
-      found = false
-      argv.each_with_index { |a,i| found = i and break if @cmd === a }
-      if found
-        range = if @b.arity > 0
-          (found + 1)..(found + @b.arity)
-        else
-          found + 1
-        end
-        @b.call(*argv[range])
+      if @cmd === argv[0] && (@b.arity == -1 || argv.size - 1 == @b.arity)
+        @b.call(*argv[1..-1])
       end
     end
   end
