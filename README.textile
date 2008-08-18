@@ -1,4 +1,6 @@
-h1. Frylock
+h1. Frylock - Easy Command line apps
+
+Inspired by "github-gem":http://github.com/defunkt/github-gem
 
 *Install:*
 
