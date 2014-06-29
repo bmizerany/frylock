@@ -4,7 +4,7 @@ Inspired by "github-gem":http://github.com/defunkt/github-gem
 
 *Install:*
 
-gem install bmizerany-sinatra
+gem install bmizerany-frylock
 
 *Example:*
 
